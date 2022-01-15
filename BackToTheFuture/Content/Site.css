@@ -1,0 +1,112 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+select,
+textarea {
+    max-width: 280px;
+}
+
+table tr td input {
+    border: 0px;
+    outline: none;
+}
+
+
+
+.table {
+    text-decoration: none;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    font-family: Helvetica;
+}
+
+    .table th {
+        font-weight: normal;
+        font-size: 16px;
+        color: #000000;
+        vertical-align: middle !important;
+        background-color: #90cf61;
+    }
+
+    .table td {
+        font-size: 15px;
+        color: #354251;
+    }
+
+    .table td, table th {
+        white-space: pre-wrap;
+        padding: 10px 5px;
+        line-height: 13px;
+        vertical-align: middle;
+        border: 1px solid #000000 !important;
+        text-align: center;
+    }
+
+table td input {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.table tr:hover {
+    background-color: #f9fafb
+}
+
+    .table tr:hover td {
+        color: #354251;
+        cursor: pointer;
+    }
+
+.colortext {
+    background-color: #354251;
+    color: white;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    vertical-align: inherit;
+    width: inherit;
+}
+
+.container-custom {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+    font-weight: bold
+}
+
+.naming {
+    font-weight: normal !important;
+    font-size: 16px !important;
+    color: #000000 !important;
+    vertical-align: middle !important;
+    background-color: #90cf61 !important;
+}
+
+h1 {
+    padding: 0 0 20px 0;
+}

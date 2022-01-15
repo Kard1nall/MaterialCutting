@@ -1,0 +1,96 @@
+﻿@model BackToTheFuture.Models.OutputData
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        google.charts.load('current', { packages: ['corechart', 'bar'] });
+        google.charts.setOnLoadCallback(drawBasic);
+
+        function drawBasic() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string','Строка');
+            data.addColumn('number', 'Количество рулонов для раскройки');
+
+            data.addRows([
+                ['Тип 1', @Model.chooses[0]],
+                ['Тип 2', @Model.chooses[1]],
+                ['Тип 3', @Model.chooses[2]],
+                ['Тип 4', @Model.chooses[3]],
+            ]);
+
+            var options = {
+                title: 'Оптимальное количество рулонов по разным типам раскроя',
+                hAxis: {
+                    title: 'Типы способов раскроя',
+                },
+                vAxis: {
+                    title: 'Количество рулонов'
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(
+                document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
+
+<body>
+    <div class="container-custom">
+        <h1>Результаты расчета</h1>
+        <table class="table">
+            <tr>
+                <td class="naming">Нужное количество рулонов 1 типа</td>
+                <td class="naming">Нужное количество рулонов 2 типа</td>
+                <td class="naming">Нужное количество рулонов 3 типа</td>
+                <td class="naming">Нужное количество рулонов 4 типа</td>
+
+                <td class="naming">Общее количество заготовок A для изготовления R изделий, шт.</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="name" class="resultValue" value="@Model.chooses[0]" readonly /></td>
+                <td><input type="text" name="name" class="resultValue" value="@Model.chooses[1]" readonly /></td>
+                <td><input type="text" name="name" class="resultValue" value="@Model.chooses[2]" readonly /></td>
+                <td><input type="text" name="name" class="resultValue" value="@Model.chooses[3]" readonly /></td>
+                <td><input type="text" name="name" class="green" value="@Model.border1" readonly /></td>
+            </tr>
+            <tr>
+                <td class="naming">Отходы от раскройти 1 типа</td>
+                <td class="naming">Отходы от раскройти 2 типа</td>
+                <td class="naming">Отходы от раскройти 3 типа</td>
+                <td class="naming">Отходы от раскройти 4 типа</td>
+
+                <td><input type="text" name="name" class="green" value="@Model.border2" readonly /></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="name" value="@Model.remainder1" /></td>
+                <td><input type="text" name="name" value="@Model.remainder2" /></td>
+                <td><input type="text" name="name" value="@Model.remainder3" /></td>
+                <td><input type="text" name="name" value="@Model.remainder4" /></td>
+                <td><input type="text" name="name" class="green" value="@Model.border3" readonly /></td>
+            </tr>
+
+
+        </table>
+        <a href="../Home/Index" class="link-primary center-block">Назад</a>
+
+        <div id="chart_div" style="width: 1500px; height: 500px; align-content: center"></div>
+    </div>
+</body>
+
+<script>
+    let values = document.querySelectorAll(".resultValue");
+
+    for (let i = 0; i < values.length; i++) {
+        if (values[i].value == 0) {
+            values[i].classList.add("red")
+        } else {
+            values[i].classList.add("green")
+        }
+    }
+</script>
+
